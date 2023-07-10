@@ -12,17 +12,17 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 1
 
 requirements:
   host:
-    - pip >=21.3
-    - python >=3.8
+    - pip
+    - python
     - flit
   run:
-    - numpy >=1.20
-    - python >=3.8
+    - numpy {{ numpy }}
+    - python
     - scipy >=1.6
     - xarray >=2022.09.0
 
