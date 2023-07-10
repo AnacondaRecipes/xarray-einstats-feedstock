@@ -37,9 +37,14 @@ test:
 about:
   home: https://github.com/arviz-devs/xarray-einstats
   summary: Stats, linear algebra and einops for xarray.
-  license: Apache-2.0
+  description: |
+    xarray-einstats is an open source Python library part of the ArviZ project. It acts as a bridge between the xarray
+    library for labelled arrays and libraries for raw arrays such as NumPy or SciPy.
+  license: Apache License 2.0
+  license_family: Apache-2.0
   license_file: LICENSE
   doc_url: https://xarray-einstats.readthedocs.io/
+  dev_url: https://github.com/arviz-devs/xarray-einstats
 
 extra:
   recipe-maintainers:
