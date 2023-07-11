@@ -24,7 +24,7 @@ requirements:
   run:
     - numpy {{ numpy }}
     - python
-    - scipy >=1.6
+    - scipy >=1.7
     - xarray >=2022.09.0
 
 test:
