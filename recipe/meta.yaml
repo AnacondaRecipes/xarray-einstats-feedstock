@@ -22,7 +22,7 @@ requirements:
     - flit
     - wheel
   run:
-    - numpy {{ numpy }}
+    - numpy {{ pin_compatible('numpy') }}
     - python
     - scipy >=1.7
     - xarray >=2022.09.0
