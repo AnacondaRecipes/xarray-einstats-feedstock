@@ -1,17 +1,17 @@
 # Generated using grayskull; edited by @ericmjl.
 {% set name = "xarray-einstats" %}
-{% set version = "0.6.0" %}
+{% set version = "0.9.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xarray_einstats-{{ version }}.tar.gz
-  sha256: ace90601505cfbe2d374762e674557ed14e1725b024823372f7ef9fd237effad
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xarray_einstats-{{ version }}.tar.gz
+  sha256: 39b373deed43592c41d3fbf8863af62e19e01c1ae553ae5ff059a8df78d995c6
 
 build:
-  skip: true  # [py<39]
+  skip: true  # [py<311]
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
@@ -19,13 +19,14 @@ requirements:
   host:
     - pip
     - python
-    - flit
-    - wheel
+    - flit-core >=3.4,<4
   run:
-    - numpy >=1.21
+    - numpy >=1.25
     - python
-    - scipy >=1.7
-    - xarray >=2022.09.0
+    - scipy >=1.11
+    - xarray >=2023.06.0
+  run_constrained:
+    - numba >=0.55
 
 test:
   imports:
