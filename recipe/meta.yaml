@@ -40,7 +40,6 @@ test:
     - pytest
     - numba >=0.55
     - einops
-    - preliz >=0.19
 
 about:
   home: https://github.com/arviz-devs/xarray-einstats
