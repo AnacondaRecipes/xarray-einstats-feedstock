@@ -1,5 +1,5 @@
 {% set name = "xarray-einstats" %}
-{% set version = "0.9.1" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/arviz-devs/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: de1a96d32738ce131ecacc64c75f33e254f8c30526227b6f06f99203bd66856b
+  sha256: ec4b98130191e49c5d74d56d5bfcd349eaaced7e9f6d653c0df9800c884e6034
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: true  # [py<311]
+  skip: true  # [py<312]
 
 requirements:
   host:
@@ -21,14 +21,12 @@ requirements:
     - flit-core >=3.4,<4
   run:
     - python
-    - numpy >=1.25
-    - scipy >=1.11
-    - xarray >=2023.06.0
+    - numpy >=2.0
+    - scipy >=1.14
+    - xarray >=2024.07.0
   run_constrained:
     - numba >=0.55
 
-# E   ModuleNotFoundError: No module named 'einops'
-{% set ignore_tests = " --ignore=tests/test_einops.py" %}
 test:
   source_files:
     - tests
@@ -36,11 +34,12 @@ test:
     - xarray_einstats
   commands:
     - pip check
-    - pytest -v tests {{ ignore_tests }}
+    - pytest -vv tests
   requires:
     - pip
     - pytest
     - numba >=0.55
+    - einops
 
 about:
   home: https://github.com/arviz-devs/xarray-einstats
