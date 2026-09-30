@@ -1,8 +1,6 @@
 {% set name = "xarray-einstats" %}
 {% set version = "0.11.0" %}
-{% set ignore_tests = " --ignore=tests/test_einops.py" %}
 
-# E   ModuleNotFoundError: No module named 'einops'
 package:
   name: {{ name|lower }}
   version: {{ version }}
@@ -36,11 +34,13 @@ test:
     - xarray_einstats
   commands:
     - pip check
-    - pytest -v tests {{ ignore_tests }}
+    - pytest -vv tests
   requires:
     - pip
     - pytest
     - numba >=0.55
+    - einops
+    - preliz >=0.19
 
 about:
   home: https://github.com/arviz-devs/xarray-einstats
